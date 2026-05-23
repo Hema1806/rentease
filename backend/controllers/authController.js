@@ -1,5 +1,5 @@
-const User = require("../models/User");
-const bcrypt = require("bcryptjs");
+import User from "../models/User.js";
+import bcrypt from "bcryptjs";
 
 
 
@@ -18,6 +18,7 @@ const signupUser = async (req, res) => {
     }
 
 
+
     const userExists = await User.findOne({ email });
 
     if (userExists) {
@@ -28,7 +29,9 @@ const signupUser = async (req, res) => {
     }
 
 
+
     const hashedPassword = await bcrypt.hash(password, 10);
+
 
 
     const user = await User.create({
@@ -38,6 +41,7 @@ const signupUser = async (req, res) => {
       password: hashedPassword,
 
     });
+
 
 
     res.status(201).json({
@@ -78,10 +82,12 @@ const loginUser = async (req, res) => {
     }
 
 
+
     const isMatch = await bcrypt.compare(
       password,
       user.password
     );
+
 
 
     if (!isMatch) {
@@ -90,6 +96,7 @@ const loginUser = async (req, res) => {
         message: "Invalid email or password",
       });
     }
+
 
 
     res.json({
@@ -112,7 +119,7 @@ const loginUser = async (req, res) => {
 
 
 
-module.exports = {
+export {
   signupUser,
   loginUser,
 };
