@@ -1,3 +1,4 @@
+import cors from "cors";
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
@@ -12,7 +13,11 @@ connectDB();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://rentease-wine.vercel.app",
+      "https://rentease-r0ixjcjrd-hema1806s-projects.vercel.app"
+    ],
     credentials: true,
   })
 );
