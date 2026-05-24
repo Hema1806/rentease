@@ -1,57 +1,73 @@
 function Features() {
-  return (
-    <section className="px-8 md:px-20 py-20">
 
+  const features = [
+    {
+      icon: "🚚",
+      title: "Fast Delivery",
+      desc: "Quick doorstep delivery and professional installation services for every rental product.",
+    },
+
+    {
+      icon: "💳",
+      title: "Flexible Plans",
+      desc: "Affordable monthly rental plans designed for students, families, and professionals.",
+    },
+
+    {
+      icon: "🛠️",
+      title: "Maintenance Support",
+      desc: "Dedicated support and maintenance assistance included throughout your rental journey.",
+    },
+  ];
+
+  return (
+
+    <section className="px-8 md:px-20 py-24">
+
+      {/* Heading */}
       <div className="text-center mb-16">
-        <h2 className="text-5xl font-bold text-gray-900">
-          Why Choose RentEase?
+
+        <p className="text-blue-600 font-semibold uppercase tracking-[3px] mb-4">
+          Why Choose Us
+        </p>
+
+        <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+          Experience Hassle-Free
+          <span className="text-blue-600"> Rentals</span>
         </h2>
 
-        <p className="text-gray-600 mt-4 text-lg">
-          Affordable, flexible, and hassle-free rental experience.
+        <p className="text-gray-600 text-lg mt-6 max-w-3xl mx-auto leading-relaxed">
+          RentEase provides affordable furniture and appliance rentals with flexible plans,
+          fast delivery, and premium customer support.
         </p>
+
       </div>
 
-
+      {/* Cards */}
       <div className="grid md:grid-cols-3 gap-10">
 
-        <div className="bg-white p-8 rounded-3xl shadow-xl hover:-translate-y-2 transition duration-300">
-          <div className="text-5xl mb-5">🚚</div>
+        {features.map((item, index) => (
 
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">
-            Fast Delivery
-          </h3>
+          <div
+            key={index}
+            className="bg-white/80 backdrop-blur-lg border border-white/40 p-10 rounded-[32px] shadow-xl hover:-translate-y-4 hover:shadow-2xl transition duration-500"
+          >
 
-          <p className="text-gray-600 leading-relaxed">
-            Quick doorstep delivery and installation for all products.
-          </p>
-        </div>
+            <div className="w-20 h-20 rounded-3xl bg-blue-100 flex items-center justify-center text-4xl mb-8">
+              {item.icon}
+            </div>
 
+            <h3 className="text-3xl font-bold text-gray-900 mb-5">
+              {item.title}
+            </h3>
 
-        <div className="bg-white p-8 rounded-3xl shadow-xl hover:-translate-y-2 transition duration-300">
-          <div className="text-5xl mb-5">💳</div>
+            <p className="text-gray-600 leading-relaxed text-lg">
+              {item.desc}
+            </p>
 
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">
-            Flexible Pricing
-          </h3>
+          </div>
 
-          <p className="text-gray-600 leading-relaxed">
-            Monthly and yearly rental plans designed for every budget.
-          </p>
-        </div>
-
-
-        <div className="bg-white p-8 rounded-3xl shadow-xl hover:-translate-y-2 transition duration-300">
-          <div className="text-5xl mb-5">🛠️</div>
-
-          <h3 className="text-2xl font-bold text-gray-800 mb-4">
-            Maintenance Support
-          </h3>
-
-          <p className="text-gray-600 leading-relaxed">
-            Dedicated customer support and maintenance assistance.
-          </p>
-        </div>
+        ))}
 
       </div>
 
